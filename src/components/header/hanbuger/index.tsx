@@ -4,10 +4,6 @@ import {
   Button,
   CloseButton,
   IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
@@ -34,24 +30,6 @@ export default function HanbugerMenu({ Dados }: Props) {
   };
 
   return (
-    // <Menu>
-    //   <MenuButton
-    //     as={IconButton}
-    //     aria-label="Options"
-    //     icon={<GiHamburgerMenu />}
-    //     variant="outline"
-    //   />
-    //   <MenuList>
-    //     {Dados.map((item, index) => {
-    //       return (
-    //         <MenuItem key={index} value={item.valor} onClick={() => handleChange(item.valor)}>
-    //           {item.texto}
-    //         </MenuItem>
-    //       )
-    //     })}
-    //   </MenuList>
-    // </Menu>
-
     <Box
       display={{
         base: "inline-flex",
@@ -111,7 +89,7 @@ export default function HanbugerMenu({ Dados }: Props) {
             </Button>
           );
         })}
-        <Lang/>
+        <Lang />
       </VStack>
     </Box>
   );
