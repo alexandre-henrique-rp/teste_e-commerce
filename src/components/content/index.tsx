@@ -3,7 +3,7 @@ import { PiTrademarkRegisteredLight } from "react-icons/pi";
 
 export default function Conteudo() {
   return (
-    <Flex w={"100%"} py={{base: 12, md: 14}} ps={{base: 1, md: 24}}>
+    <Flex w={"100%"} py={{base: 12, md: 14}} ps={{base: 1, md: 24}} px={{base: 5, md: 0}}>
       <Flex
         flexDir={"column"}
         justifyContent={"space-between"}

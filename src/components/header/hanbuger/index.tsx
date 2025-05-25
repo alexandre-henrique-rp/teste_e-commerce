@@ -7,9 +7,9 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
-import Lang from "../lang";
+import { GiHamburgerMenu } from "react-icons/gi";
+import Lang from "../../lang";
 
 type ListaProps = {
   valor: string;

@@ -1,7 +1,7 @@
-import { FaSearch } from "react-icons/fa";
-import HanbugerMenu from "./hanbuger";
 import { Button, Flex, Heading, IconButton, Link } from "@chakra-ui/react";
-import Lang from "./lang";
+import { FaSearch } from "react-icons/fa";
+import Lang from "../lang";
+import HanbugerMenu from "./hanbuger";
 
 export default function Header() {
   const Dados = [
