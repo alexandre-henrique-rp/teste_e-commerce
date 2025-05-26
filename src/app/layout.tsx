@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`suppressHydrationWarning`}>
-      <body style={{ fontFamily: raleway.style.fontFamily, color: "#4C4D4C" }}>
+      <body style={{ fontFamily: raleway.style.fontFamily, color: "#4C4D4C", backgroundColor: "#ffff" }}>
         <ChakraUIProvider>{children}</ChakraUIProvider>
       </body>
     </html>
