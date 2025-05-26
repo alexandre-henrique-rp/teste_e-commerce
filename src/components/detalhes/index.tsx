@@ -11,7 +11,7 @@ import {
 
 export default function Detalhes() {
   return (
-    <Box w="100%">
+    <Box w="100%" px={{base: 4, md: 0}}>
       <Accordion
         allowMultiple
         w="100%"

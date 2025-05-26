@@ -7,13 +7,14 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Lang from "../../lang";
+import { useRouter } from "next/navigation";
 
 type ListaProps = {
   valor: string;
   texto: string;
+  action?: () => void;
 };
 
 interface Props {
@@ -21,12 +22,12 @@ interface Props {
 }
 
 export default function HanbugerMenu({ Dados }: Props) {
-  const [value, setValue] = useState("");
-  console.log("🚀 ~ HanbugerMenu ~ value:", value);
+  const router = useRouter();
   const mobileNav = useDisclosure();
 
   const handleChange = (value: string) => {
-    setValue(value);
+    router.push(value);
+    mobileNav.onClose();
   };
 
   return (
@@ -67,6 +68,7 @@ export default function HanbugerMenu({ Dados }: Props) {
         spacing={3}
         rounded="sm"
         shadow="sm"
+        zIndex={10}
       >
         <CloseButton
           w={"100%"}
@@ -77,6 +79,20 @@ export default function HanbugerMenu({ Dados }: Props) {
         />
 
         {Dados.map((item, index) => {
+          if (item.action) {
+            return (
+              <Button
+                key={index}
+                w="full"
+                variant="ghost"
+                _hover={{ bg: "gray.300" }}
+                onClick={item.action}
+              >
+                {item.texto}
+              </Button>
+            );
+          }
+          
           return (
             <Button
               key={index}

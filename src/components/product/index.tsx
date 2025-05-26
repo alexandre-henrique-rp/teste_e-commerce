@@ -6,7 +6,6 @@ import {
   BreadcrumbLink,
   Button,
   Flex,
-  Grid,
   Heading,
   Image,
   Link,
@@ -21,7 +20,7 @@ import ImageProduct from "./image";
 
 export default function Product() {
   return (
-    <Box w="100%" mx="auto" px={[2, 4, 6, 8]} py={[4, 6, 8]}>
+    <Box w="100%" mx="auto" px={[2, 8]} py={[4, 6, 8]}>
       {/* Breadcrumb Navigation */}
       <Breadcrumb
         spacing="8px"
@@ -45,14 +44,28 @@ export default function Product() {
       </Breadcrumb>
 
       {/* Main Product Display */}
-      <Grid templateColumns={["1fr", "1fr", "1fr", "1fr 1fr"]} gap={[4, 6, 8]}>
+      <Flex 
+        direction={{base: "column", md: "row"}} 
+        gap={4}
+        justifyContent="center"
+        alignItems={{base: "center", md: "flex-start"}}
+        flexWrap={{base: "wrap", md: "nowrap"}}
+        pe={{base: 2, sm: 4, md: 0}}
+      >
         {/* Product Images - Left Side */}
         <ImageProduct />
 
         {/* Product Info - Right Side */}
-        <VStack w={'523px'} spacing={4} align="stretch">
+        <VStack 
+          w={"100%"} 
+          spacing={4} 
+          align="stretch"
+          mx="auto"
+          ms={0}
+          px={{base: 4, md: 0}}
+        >
           {/* Product Brand */}
-          <Text color={"gray.600"}>
+          <Text color={"gray.600"} w="100%">
             Hidrolight Neo{" "}
             <Icon as={PiTrademarkRegisteredLight} fontSize={"sm"} />
           </Text>
@@ -60,30 +73,32 @@ export default function Product() {
           {/* Product Title */}
           <Heading
             as="h1"
-            size="xl"
+            size={{base: "lg", md: "xl"}}
             bg={"#80276C"}
             color="white"
-            p={2}
+            p={{base: 2, md: 3}}
             borderRadius="md"
+            lineHeight="1.2"
+            w="100%"
           >
             Órtese Splint Bilateral
           </Heading>
 
           {/* Product Codes */}
-          <Text fontSize="sm" color={"gray.600"}>
+          <Text fontSize={{base: "xs", md: "sm"}} color={"gray.600"} w="100%">
             Código SKU OR83 Lado direito / Código SKU OR83 Lado esquerdo
           </Text>
 
           {/* Product Description */}
           <Box
-            w={["100%", "100%", "100%", "480px"]}
-            maxH={["none", "none", "none", "316px"]}
-            overflowY={["visible", "visible", "visible", "auto"]}
+            w={{base: "100%", lg: "100%"}}
+            maxH={{base: "none", lg: "none"}}
+            overflowY="visible"
           >
-            <Text fontWeight="bold" mb={2}>
+            <Text fontWeight="bold" mb={2} fontSize={{base: "sm", md: "md"}}>
               Descrição
             </Text>
-            <Text fontSize="sm">
+            <Text fontSize={{base: "xs", sm: "sm", md: "md"}}>
               A Órtese Splint Bilateral Hidrolight é feita de neoprene Plush,
               com propriedades isolantes térmicas e um acabamento elegante em
               plush. Possui ampla capacidade de ajuste devido à aderência do
@@ -100,13 +115,13 @@ export default function Product() {
           </Box>
 
           {/* Level and Recovery Info */}
-          <Box>
+          <Box w={'100%'}>
             <Text fontWeight="bold">Nível 3</Text>
-            <Text fontSize="sm">Recuperação e tratamento de lesões GRAVES</Text>
+            <Text fontSize={{base: "xs", sm: "sm", md: "md"}}>Recuperação e tratamento de lesões GRAVES</Text>
           </Box>
 
           {/* Available Colors */}
-          <Flex align="center" flexWrap="wrap">
+          <Flex align="center" flexWrap="wrap" w="100%" mb={2}>
             <Text mr={2} minW={["100%", "auto"]}>
               Cores disponíveis:
             </Text>
@@ -117,7 +132,7 @@ export default function Product() {
           </Flex>
 
           {/* Model */}
-          <Flex flexWrap="wrap">
+          <Flex flexWrap="wrap" w="100%" mb={2}>
             <Text mr={2} minW={["100%", "auto"]}>
               Modelo:
             </Text>
@@ -125,7 +140,7 @@ export default function Product() {
           </Flex>
 
           {/* Available Sizes */}
-          <Flex align="center" flexWrap="wrap">
+          <Flex align="center" flexWrap="wrap" w="100%" mb={2}>
             <Text mr={2} minW={["100%", "auto"]}>
               Tamanhos disponíveis:
             </Text>
@@ -140,7 +155,7 @@ export default function Product() {
           </Flex>
 
           {/* Size Guide and Measurement Table */}
-          <Flex direction={["column", "row"]} gap={[2, 4]}>
+          <Flex w="100%" direction={{base: "column", sm: "row"}} gap={{base: 2, md: 4}} mb={3}>
             <Link color="#E57200">
               <Flex align="center">
                 <Icon as={Image} src="/size.png" w={"20px"} mr={1} />
@@ -159,24 +174,26 @@ export default function Product() {
 
           {/* Find Stores Button */}
           <Button
-            w={["100%", "178px"]}
+            w={{base: "100%", sm: "80%", md: "178px"}}
             bg="#E57200"
             color="white"
             _hover={{ bg: "#E57200" }}
-            mt={4}
-            fontSize={["sm", "md"]}
+            mt={{base: 3, md: 4}}
+            fontSize={{base: "sm", md: "md"}}
+            px={{base: 2, md: 4}}
+            alignSelf="flex-start"
           >
             Encontrar lojas online
           </Button>
 
           {/* Become a Seller Link */}
-          <Text mt={2}>
+          <Text mt={3} mb={2} fontSize={{base: "xs", sm: "sm", md: "md"}} w="100%">
             <Link href="#" color={"gray.600"}>
               Gostou desse produto? Seja um vendedor
             </Link>
           </Text>
         </VStack>
-      </Grid>
+      </Flex>
     </Box>
   );
 }

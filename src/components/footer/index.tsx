@@ -1,21 +1,28 @@
-import {
-  Box,
-  Divider,
-  Flex,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Divider, Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
 import Lang from "../lang";
 import { LuCopyright } from "react-icons/lu";
 
 export default function Footer() {
   return (
-    <Box id="contato" w={"100%"} bg={"#4C4D4C"} fontFamily={"roboto, sans-serif"}>
-      <Flex flexDir={{ base: "column", lg: "row" }} px={{ base: 5, lg: 24 }} py={4} pt={10} w={"100%"} justifyContent={"space-between"}>
+    <Box
+      id="contato"
+      w={"100%"}
+      bg={"#4C4D4C"}
+      fontFamily={"roboto, sans-serif"}
+    >
+      <Flex
+        flexDir={{ base: "column", lg: "row" }}
+        px={{ base: 5, lg: 24 }}
+        py={4}
+        pt={10}
+        w={"100%"}
+        justifyContent={"space-between"}
+      >
+        <Link href="/" _hover={{textDecoration: "none"}}>
         <Heading as="h1" fontSize={"2rem"} fontWeight={500} color={"white"}>
           LOGO
         </Heading>
+        </Link>
         <Box display={"flex"} flexDir={{ base: "column", lg: "row" }} gap={12}>
           <Flex flexDir={"column"}>
             <Text color={"white"} fontSize={"1rem"} fontWeight={600} mb={2}>
@@ -68,7 +75,7 @@ export default function Footer() {
             </Text>
           </Flex>
 
-          <Flex flexDir={"column"} >
+          <Flex flexDir={"column"}>
             <Text color={"white"} fontSize={"1rem"} fontWeight={600} mb={2}>
               Entre em contato e tire suas dúvidas
             </Text>
@@ -106,15 +113,23 @@ export default function Footer() {
 
       <Divider />
 
-      <Flex px={{ base: 5, lg: 24 }} py={6} flexDir={{ base: "column", lg: "row" }} justifyContent={"space-between"}>
-        <Flex alignItems={"center"}>
+      <Flex
+        px={{ base: 5, lg: 24 }}
+        py={6}
+        flexDir={{ base: "column", lg: "row" }}
+        justifyContent={"space-between"}
+      >
+        <Flex
+          alignItems={"center"}
+          justifyContent={{ base: "center", lg: "flex-start" }}
+        >
           <Text color={"white"} fontSize={"1rem"} fontWeight={400}>
             Selecionar País
           </Text>
           <Lang color={"white"} size={"md"} />
         </Flex>
 
-        <Box display={"flex"} flexDir={"column"} alignItems={"center"}>
+        <Box display={"flex"} flexDir={"column"} alignItems={"center"} mt={{base: 5, lg: 0}}>
           <Flex alignItems={"center"} gap={2}>
             <LuCopyright color={"white"} />
             <Text color={"white"} fontSize={"0.8rem"} fontWeight={400}>

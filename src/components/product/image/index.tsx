@@ -5,7 +5,12 @@ import { FiChevronRight, FiDownload } from "react-icons/fi";
 export default function ImageProduct() {
   return (
     <>
-      <Box w={'684px'} position="relative">
+      <Box
+        w={{ base: "100%", md: "684px" }}
+        position="relative"
+        mx={{base: 2, md: 0}}
+        px={{base: 2, md: 4}}
+      >
         {/* Main Product Image */}
         <Box
           border="1px"
@@ -13,27 +18,34 @@ export default function ImageProduct() {
           borderRadius="md"
           overflow="hidden"
           position="relative"
-          maxW="100%"
+          w="full"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mx={{base: 0, md: 2}}
+          my={{base: 2, md: 3}}
         >
           <Image
             src="/Bilateral/1.png"
             alt="Órtese Splint Bilateral"
             w="100%"
-            h={["300px", "400px", "523px"]}
-            objectFit="cover"
-            objectPosition={["center", "center", "center -350px"]}
+            h={{ base: "300px", sm: "350px", md: "450px", lg: "523px" }}
+            objectFit="contain"
+            objectPosition="center"
+            margin="0 auto"
           />
 
           <Text
             position="absolute"
-            bottom={2}
-            left={["calc(50% - 15px)", "calc(50% - 15px)", "280px"]}
+            bottom={4}
+            left={{ base: "50%", lg: "280px" }}
+            transform={{ base: "translateX(-50%)", lg: "none" }}
             bg="blackAlpha.600"
             color="white"
-            px={2}
+            px={3}
             py={1}
             borderRadius="md"
-            fontSize="sm"
+            fontSize={{ base: "xs", md: "sm" }}
           >
             1/6
           </Text>
@@ -55,6 +67,8 @@ export default function ImageProduct() {
         <Flex
           w="100%"
           mt={4}
+          mb={3}
+          px={{base: 1, md: 2}}
           justifyContent="space-between"
           alignItems="center"
         >
@@ -69,10 +83,19 @@ export default function ImageProduct() {
           </Box>
 
           <Flex
-            overflowX="hidden"
-            gap={2}
-            ps={[2, 5, 10, 20]}
-            flexWrap={["wrap", "nowrap"]}
+            overflowX={{ base: "auto", md: "hidden" }}
+            gap={{ base: 2, md: 3 }}
+            px={{ base: 3, sm: 4, md: 6 }}
+            py={{base: 2, md: 3}}
+            mx={{base: 1, md: 2}}
+            flexWrap={{ base: "nowrap", md: "nowrap" }}
+            css={{
+              "&::-webkit-scrollbar": {
+                display: "none"
+              },
+              scrollbarWidth: "none",
+              "-ms-overflow-style": "none"
+            }}
           >
             {[1, 2, 3, 4, 5].map((num) => (
               <Box key={num} position="relative">
@@ -80,8 +103,8 @@ export default function ImageProduct() {
                   border={num === 1 ? "2px solid" : "1px solid"}
                   borderColor={num === 1 ? "#E57200" : "gray.200"}
                   borderRadius="md"
-                  w={["70px", "90px", "112.25px"]}
-                  h={["60px", "70px", "90.8px"]}
+                  w={{ base: "80px", sm: "90px", md: "100px", lg: "112.25px" }}
+                  h={{ base: "65px", sm: "75px", md: "85px", lg: "90.8px" }}
                   cursor="pointer"
                   overflow="hidden"
                   position="relative"
@@ -126,7 +149,10 @@ export default function ImageProduct() {
           rightIcon={<FiDownload />}
           variant="link"
           color={"#E57200"}
-          mt={6}
+          mt={{ base: 4, md: 6 }}
+          mb={{ base: 2, md: 3 }}
+          mx={{ base: 2, md: 3 }}
+          fontSize={{ base: "sm", md: "md" }}
         >
           Baixar Folder do Produto
         </Button>
