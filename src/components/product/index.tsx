@@ -174,7 +174,7 @@ export default function Product() {
 
           {/* Find Stores Button */}
           <Button
-            w={{base: "100%", sm: "80%", md: "178px"}}
+            w={{base: "100%", sm: "100%", md: "178px"}}
             bg="#E57200"
             color="white"
             _hover={{ bg: "#E57200" }}
