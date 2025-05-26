@@ -155,7 +155,7 @@ export default function Product() {
           </Flex>
 
           {/* Size Guide and Measurement Table */}
-          <Flex w="100%" direction={{base: "column", sm: "row"}} gap={{base: 2, md: 4}} mb={3}>
+          <Flex w="100%" direction={{base: "column", md: "row"}} gap={{base: 2, md: 4}} mb={3}>
             <Link color="#E57200">
               <Flex align="center">
                 <Icon as={Image} src="/size.png" w={"20px"} mr={1} />
