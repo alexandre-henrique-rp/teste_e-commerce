@@ -11,7 +11,7 @@ import { LuCopyright } from "react-icons/lu";
 
 export default function Footer() {
   return (
-    <Box w={"100%"} bg={"#4C4D4C"} fontFamily={"roboto, sans-serif"}>
+    <Box id="contato" w={"100%"} bg={"#4C4D4C"} fontFamily={"roboto, sans-serif"}>
       <Flex flexDir={{ base: "column", lg: "row" }} px={{ base: 5, lg: 24 }} py={4} pt={10} w={"100%"} justifyContent={"space-between"}>
         <Heading as="h1" fontSize={"2rem"} fontWeight={500} color={"white"}>
           LOGO

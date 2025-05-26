@@ -1,25 +1,67 @@
-import { Button, Flex, Heading, IconButton, Link } from "@chakra-ui/react";
+"use client";
+import { Button, Flex, Heading, IconButton, Link, Text } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import Lang from "../lang";
 import HanbugerMenu from "./hanbuger";
 
+
 export default function Header() {
+  const isHomePage = () => {
+    return window.location.pathname === "/" || window.location.pathname === "";
+  };
+
+  const scrollToFooter = () => {
+    if (isHomePage()) {
+      const footer = document.getElementById("contato");
+      if (footer) {
+        footer.scrollIntoView({ behavior: "smooth" });
+      }
+      } else {
+        window.location.href = "/#contato";
+    }
+  };
+  
+  const scrollToSobre = () => {
+    if (isHomePage()) {
+      const sobre = document.getElementById("sobre");
+      if (sobre) {
+        sobre.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = "/#sobre";
+    }
+  };
+  
+  const scrollToCatalogo = () => {
+    if (isHomePage()) {
+      const catalogo = document.getElementById("catalogo");
+      if (catalogo) {
+        catalogo.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = "/#catalogo";
+    }
+  };
+
   const Dados = [
     {
-      valor: "/produtos",
+      valor: "/hidrolight-neo",
       texto: "Produtos",
     },
     {
-      valor: "/sobre",
+      valor: "#",
       texto: "Sobre nós",
+      action: scrollToSobre,
     },
     {
-      valor: "/contato",
+      valor: "#",
       texto: "Contato",
+      action: scrollToFooter,
     },
     {
-      valor: "/catalogo",
+      valor: "#",
       texto: "Catalogo",
+      action: scrollToCatalogo,
     },
   ];
 
@@ -32,9 +74,11 @@ export default function Header() {
       gap={{ base: 2, md: 0 }}
     >
       <Flex w={"100%"} justifyContent={"space-between"} alignItems={"center"}>
-        <Heading as="h1" fontSize={"2rem"} fontWeight={500} color={"#4C4D4C"}>
-          LOGO
-        </Heading>
+        <Link href="/" _hover={{ textDecoration: "none" }}>
+          <Heading as="h1" fontSize={"2rem"} fontWeight={500} color={"#4C4D4C"} cursor="pointer">
+            LOGO
+          </Heading>
+        </Link>
 
         <Flex
           display={{ base: "none", lg: "flex" }}
@@ -42,6 +86,23 @@ export default function Header() {
           alignItems={"center"}
         >
           {Dados.map((item, index) => {
+            if (item.action) {
+              return (
+                <Text
+                  key={index}
+                  onClick={item.action}
+                  fontSize={"1rem"}
+                  fontWeight={500}
+                  color={"#4C4D4C"}
+                  cursor="pointer"
+                  _hover={{ textDecoration: "underline" }}
+                >
+                  {item.texto}
+                </Text>
+              );
+            }
+
+            // links normais
             return (
               <Link
                 key={index}

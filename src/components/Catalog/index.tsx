@@ -1,17 +1,14 @@
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
   Box,
   Button,
   Flex,
   IconButton,
   Image,
+  Text,
 } from "@chakra-ui/react";
 import Card from "../card";
 import { FaSearch } from "react-icons/fa";
+import FilterCatalog from "../filter_cartalog";
 
 const ImgData = [
   {
@@ -81,30 +78,29 @@ const ImgData = [
 //TODO: finalizar filtro de produtos
 export default function Catalog() {
   return (
-    <>
-      <Flex gap={4} justifyContent={"space-between"} mb={10}>
-        <Box display={{ base: "none", lg: "flex" }} w={"306px"}>
-          <Accordion w={"100%"} allowMultiple>
-            <AccordionItem w={"100%"}>
-              <h2>
-                <AccordionButton w={"100%"}>
-                  <Box as="span" flex="1" textAlign="left">
-                    Section 1 title
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
+    <Box id="catalogo">
+      <Flex
+        gap={4}
+        justifyContent={"space-between"}
+        mb={16}
+        flexDir={{ base: "column", xl: "row" }}
+      >
+        <Box w={{ base: "100%", xl: "306px" }}>
+          <Box
+            p={4}
+            py={6}
+            border={"1px solid"}
+            borderColor={"gray.300"}
+            style={{ borderRadius: "15px 15px 0 0" }}
+          >
+            <Text fontSize={"1rem"} color={"#121212"}>
+              Filtros
+            </Text>
+          </Box>
+          <FilterCatalog />
         </Box>
 
-        <Box w={"55rem"}>
+        <Box w={{ base: "100%", xl: "55rem" }} px={{ base: 16, xl: 0 }}>
           <Flex alignItems={"center"} justifyContent={"space-between"} py={3}>
             <Flex gap={2} alignItems={"center"}>
               <Box
@@ -145,13 +141,13 @@ export default function Catalog() {
               Baixar Catálogo
             </Button>
           </Flex>
-          <Flex gap={8} flexWrap={"wrap"}>
+          <Flex gap={6} flexWrap={"wrap"}>
             {ImgData.map((item) => (
               <Card key={item.id} data={item} />
             ))}
           </Flex>
         </Box>
       </Flex>
-    </>
+    </Box>
   );
 }
